@@ -52,13 +52,13 @@ public class ConnectFourController implements Initializable {
     public Label playerNameLabel;
 
     @FXML
-    public TextField Player1;
+    public TextField playerOneTextField;
 
     @FXML
-    public TextField Player2;
+    public TextField playerTwoTextField;
 
     @FXML
-    public Button SetNames;
+    public Button setNamesButton;
 
 
     private boolean isAllowedToInsert =true;
@@ -72,6 +72,13 @@ public class ConnectFourController implements Initializable {
         for (Rectangle rectangle: rectangleList){
             rootGridPane.add(rectangle,0,1);
         }
+
+
+        setNamesButton.setOnAction(actionEvent -> {
+            PlayerOne=playerOneTextField.getText();
+            PlayerTwo=playerTwoTextField.getText();
+            playerNameLabel.setText(isPlayerOneTurn?PlayerOne:PlayerTwo);
+        });
 
     }
 
@@ -298,11 +305,6 @@ public class ConnectFourController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        SetNames.setOnAction(actionEvent -> {
-            PlayerOne=Player1.getText();
-            PlayerTwo=Player2.getText();
-            playerNameLabel.setText(isPlayerOneTurn?PlayerOne:PlayerTwo);
-        });
 
     }
 }
