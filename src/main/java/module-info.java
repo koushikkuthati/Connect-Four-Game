@@ -7,6 +7,7 @@ module com.connectfour.connectfourgame {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
     requires jdk.sctp;
+    requires java.desktop;
 
     opens com.connectfour.connectfourgame to javafx.fxml;
     exports com.connectfour.connectfourgame;

@@ -2,7 +2,6 @@ package com.connectfour.connectfourgame;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -28,6 +27,7 @@ public class ConnectFourApplication extends Application {
         controller = fxmlLoader.getController();
         controller.createPlayGround();
 
+
         MenuBar menuBar = createMenu();
         menuBar.prefWidthProperty().bind(stage.widthProperty());
 
@@ -49,22 +49,22 @@ public class ConnectFourApplication extends Application {
 
         MenuItem newGame = new MenuItem("New Game");
 
-        newGame.setOnAction(ActionEvent -> {
-            resetGame();
+        newGame.setOnAction(actionEvent -> {
+            controller.resetGame();
 
         });
 
 
         MenuItem resetGame = new MenuItem("Reset Game");
-        resetGame.setOnAction(ActionEvent -> {
-            resetGame();
+        resetGame.setOnAction(actionEvent -> {
+            controller.resetGame();
         });
 
         SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
 
         MenuItem exitGame = new MenuItem("Exit Game");
 
-        exitGame.setOnAction(ActionEvent -> {
+        exitGame.setOnAction(actionEvent -> {
             exitGame();
         });
 
@@ -75,13 +75,13 @@ public class ConnectFourApplication extends Application {
         Menu HelpMenu = new Menu("Help");
 
         MenuItem newHelpMenu = new MenuItem("About Connect4");
-        newHelpMenu.setOnAction(ActionEvent -> {
+        newHelpMenu.setOnAction(actionEvent -> {
             aboutGame();
         });
 
         SeparatorMenuItem separatorMenuItem1 = new SeparatorMenuItem();
         MenuItem aboutApp = new MenuItem("About Me");
-        aboutApp.setOnAction(ActionEvent -> {
+        aboutApp.setOnAction(actionEvent -> {
             aboutMe();
         });
 
@@ -128,11 +128,6 @@ public class ConnectFourApplication extends Application {
 
         Platform.exit();
         System.exit(0);
-    }
-
-    private void resetGame() {
-
-
     }
 
 
